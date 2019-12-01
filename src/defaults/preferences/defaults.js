@@ -1,1 +1,1 @@
-pref("extensions.gnome-keyring.keyringName", "");
+pref("extensions.uxp-gnome-keyring.keyringName", "");

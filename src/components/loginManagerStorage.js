@@ -5,16 +5,16 @@ Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 Components.utils.import("resource://gre/modules/Promise.jsm");
 
 var keyring = {};
-Components.utils.import("chrome://gnome-keyring/content/gnome-keyring.js", keyring);
+Components.utils.import("chrome://uxp-gnome-keyring/content/gnome-keyring.js", keyring);
 
 function GnomeKeyringLoginManagerStorage() {}
 GnomeKeyringLoginManagerStorage.prototype = {
 	classDescription: "GNOME Keyring nsILoginManagerStorage implementation",
-	contractID: "@sebastianwick.net/login-manager/storage/gnomekeyring;1",
-	classID: Components.ID("{36defadb-7c73-4019-a77c-53c42bda0957}"),
+	contractID: "@uxp/login-manager/storage/gnomekeyring;1",
+	classID: Components.ID("{dc541b5d-7ad3-4d62-85de-5debc0c9d9db}"),
 	QueryInterface: XPCOMUtils.generateQI([Ci.nsILoginManagerStorage]),
 
-	prefBranch: "extensions.gnome-keyring.",
+	prefBranch: "extensions.uxp-gnome-keyring.",
 	attributePasswordField: "passwordField",
 	attributeHostname: "hostname",
 	attributeFormSubmitURL: "formSubmitURL",

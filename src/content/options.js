@@ -2,10 +2,10 @@ const Cc = Components.classes;
 const Ci = Components.interfaces;
 
 var keyring = {};
-Components.utils.import("chrome://gnome-keyring/content/gnome-keyring.js", keyring);
+Components.utils.import("chrome://uxp-gnome-keyring/content/gnome-keyring.js", keyring);
 
 var GnomeKeyringOptions = {
-	prefBranch: "extensions.gnome-keyring.",
+	prefBranch: "extensions.uxp-gnome-keyring.",
 
 	// Console logging service, used for debugging.
 	__logService : null,

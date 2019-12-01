@@ -1,5 +1,5 @@
-content gnome-keyring content/
-component {36defadb-7c73-4019-a77c-53c42bda0957} components/loginManagerStorage.js
-contract @sebastianwick.net/login-manager/storage/gnomekeyring;1 {36defadb-7c73-4019-a77c-53c42bda0957}
-category login-manager-storage nsILoginManagerStorage @sebastianwick.net/login-manager/storage/gnomekeyring;1
-skin gnome-keyring hicolor chrome/skin/hicolor/
+content uxp-gnome-keyring content/
+component {dc541b5d-7ad3-4d62-85de-5debc0c9d9db} components/loginManagerStorage.js
+contract @uxp/login-manager/storage/uxpgnomekeyring;1 {dc541b5d-7ad3-4d62-85de-5debc0c9d9db}
+category login-manager-storage nsILoginManagerStorage @uxp/login-manager/storage/uxpgnomekeyring;1
+skin uxp-gnome-keyring hicolor chrome/skin/hicolor/
