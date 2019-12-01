@@ -1,6 +1,6 @@
 # GNOME Keyring for UXP
 
-An extension to store passwords and form logins in gnome-keyring.
+An extension to store passwords and form logins in gnome-keyring, for Unix-like systems which support it.
 
 This replaces the default password manager in UXP applications with an implementation which uses GNOME Keyring. This is a centralised system-based password manager, which is more simple to handle than per-application management.
 
@@ -8,22 +8,27 @@ You need `libgnome-keyring0` (or similar, depending on distro package names) to 
 
 You can find more technical information on the [Bugzilla issue](https://bugzilla.mozilla.org/show_bug.cgi?id=309807) related to this.
 
-# Usage
+## Building
+Simply download the contents of the "src" folder  and pack the contents into a .zip file. Then, rename the file to .xpi and drag into the browser.
 
-You can change the keyring in which passwords are saved by creating or editing the preference item `extensions.uxp-gnome-keyring.keyringName`. The default keyring is used otherwise. This is a per-profile setting, so if you don't manually change it, all profiles will share the same keyring.
+You can optionally run `build.sh` instead. Running this as-is will produce a .xpi file ending in `-dev`, and if run from the command line and appending a number (e.g. `./build.sh 2`) will append that number to the filename instead.
+
+## Usage
+
+You can change the keyring in which passwords are saved by creating or editing the preference item `extensions.uxp-gnome-keyring.keyringName` (or adjusting the relevant options in the Add-ons Manager). The default keyring is used otherwise. This is a per-profile setting, so if you don't manually change it, all profiles will share the same keyring.
 
 You can backup your passwords easily, separately from the rest of your profile. Your keyrings are stored `~/.local/share/keyrings` - though it is possible this may change in the future (determined by your desktop environment, not this extension).
 
 You can also take advantage of the more fine-tuned keyring management features of gnome-keyring, such as:
 
 * No need to prompt for password, if you store in the `login` keyring and the password for that keyring is the same as your login password.
-* If the keyring is already open, don't need to prompt for a password each time you start Firefox or Thunderbird.
+* If the keyring is already open, don't need to prompt for a password each time you start your application.
 * You can explicitly re-lock the keyring when you feel you need to.
 * In gnome-keyring 3, the keyring password prompt disables keyboard input to other windows, so you don't need to worry about accidentally typing it somewhere you shouldn't
 
 Note: gnome-keyring stores the passwords encrypted on permanent storage but it keeps unlocked passwords in memory without encryption. As a result, programs with access to the memory space of gnome-keyring (such as debuggers and applications running as root) may be able to extract the passwords. The same applies to the default password manager implementations, so this extension should not be any less secure.
 
-# Non-working cases and workarounds
+## Non-working cases and workarounds
 
 Passwords will not be saved or filled in if:
 
@@ -42,9 +47,9 @@ Passwords will not be saved or filled in if:
 
 These are not directly fixable by this extension.
 
-# Migrating old passwords
+## Migrating old passwords
 
-This extension cannot migrate passwords on its own.  However you can use the [Password Backup Tool](https://addons.palemoon.org/addon/password-backup-tool/) extension to export your passwords from the default password manager and then re-import them into gnome-keyring:
+This extension cannot migrate passwords on its own.  However, you can use the [Password Backup Tool](https://addons.palemoon.org/addon/password-backup-tool/) extension to export your passwords from the default password manager and then re-import them into gnome-keyring:
 
 * Before installing this extension install the [Password Backup Tool](https://addons.palemoon.org/addon/password-backup-tool/) extension.
 * Export all the passwords saved in the password manager to a XML file.
